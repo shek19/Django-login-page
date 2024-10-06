@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}" />
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="form-container sign-in-container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            
+            <h1>Login</h1>
+            <br>
+            
+                
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="errorlist">{{ form.email.errors }}</div>
+                {% endif %}
+            
+            
+            
+                
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <div class="errorlist">{{ form.password.errors }}</div>
+                {% endif %}
+            
+            <br>
+            <button type="submit" class="btn">Sign in</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

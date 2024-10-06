@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}" />
+</head>
+<body>
+
+<div class="container" id="container" >
+    <div class="form-container sign-up-container">
+        <form method="POST" action="">
+            <h1>Registration</h1>
+            <br><br>
+            {% csrf_token %}
+            {{ form.name }}
+            {% if form.name.errors %}
+                    <div class="errorlist">
+                        {% for error in form.name.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+            {{ form.email }}
+            {% if form.email.errors %}
+                    <div class="errorlist">
+                        {% for error in form.email.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            
+  <!--          {{ form.username }}
+            {% if form.username.errors %}
+                    <div class="errorlist">
+                        {% for error in form.username.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                -->          
+            {{ form.password }}
+            {% if form.password.errors %}
+                    <div class="errorlist">
+                        {% for error in form.password.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            
+            {{ form.phone_number }}
+            {% if form.phone_number.errors %}
+                <div class="errorlist">
+                    {% for error in form.phone_number.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+        <div id="age-container">
+            {{ form.age.label_tag }}
+            {{ form.age }}
+            {% if form.age.errors %}
+                <div class="errorlist">
+                    {% for error in form.age.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+            <br>
+            
+            <button type="submit" class="btn">Sign up</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+
+
